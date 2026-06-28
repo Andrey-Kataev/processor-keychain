@@ -3,288 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Магазин 3D Брелков | LEV & KOT</title>
+    <title>Дачная Лаборатория 3D-Печати</title>
     <style>
         body {
-            background-color: #0d0e12;
-            color: #f1f2f6;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #141419;
+            color: #ffffff;
+            padding: 20px;
             margin: 0;
-            padding: 0;
+        }
+        .notice-box {
+            background-color: #1e140a;
+            border: 1px solid #ffaa00;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .notice-box h4 {
+            margin: 0 0 10px 0;
+            color: #ffaa00;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        .notice-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .notice-box li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #ffaa00;
+            line-height: 1.4;
+        }
+        .info-box {
+            background-color: #1a1a1f;
+            border: 1px dashed #555;
+            border-radius: 8px;
+            padding: 15px;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+        .info-box p {
+            margin: 0;
+            font-size: 14px;
+            color: #ffaa00;
+            line-height: 1.4;
+        }
+        .section-title {
             text-align: center;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 40px;
+            font-size: 22px;
         }
-
-        header {
-            background: linear-gradient(135deg, #1e202c, #0d0e12);
-            padding: 60px 20px;
-            border-bottom: 3px solid #ffcc00;
-        }
-
-        h1 {
-            color: #ffcc00;
-            font-size: 2.8rem;
-            margin: 0;
-            text-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            color: #a4b0be;
-            margin-top: 10px;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .stop-orders-box {
-            background-color: #2c221a;
-            border: 2px solid #ff9f43;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            color: #ff9f43;
-            font-weight: bold;
-            font-size: 1.2rem;
-            text-align: left;
-            line-height: 1.6;
-            box-shadow: 0 0 15px rgba(255, 159, 67, 0.15);
-        }
-
-        .warning-box {
-            background-color: #2c221a;
-            border: 1px dashed #ff9f43;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 40px;
-            color: #ffb142;
-            font-weight: bold;
-            font-size: 1.1rem;
-            text-align: left;
-            line-height: 1.6;
-        }
-
-        .catalog {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-
-        .product-card {
-            background-color: #1c1e27;
-            padding: 25px;
-            border-radius: 16px;
-            border: 1px solid #2f3542;
+        .gallery-container {
             display: flex;
-            flex-direction: column;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            text-align: left;
-        }
-
-        .product-card img, .photo-placeholder {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 15px;
-        }
-
-        .photo-placeholder {
-            background-color: #2f3542;
-            display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             justify-content: center;
-            color: #a4b0be;
-            font-size: 1rem;
+            gap: 50px;
+            margin-top: 30px;
+        }
+        .item-box {
+            text-align: center;
+            width: 280px;
+            transition: transform 0.3s ease;
+        }
+        .item-box:hover {
+            transform: scale(1.03);
+        }
+        .item-box img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #ffaa00;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+            background-color: #222;
+        }
+        .item-name {
+            color: #ffaa00;
             font-weight: bold;
-            border: 2px dashed #57606f;
+            margin: 15px 0 10px 0;
+            font-size: 18px;
+            border-bottom: 1px dashed #333;
+            padding-bottom: 5px;
         }
-
-        .product-card h3 {
-            color: #ffcc00;
-            font-size: 1.5rem;
-            margin: 5px 0;
-            text-align: center;
+        .item-specs {
+            color: #bbb;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.6;
+            text-align: left;
+            padding-left: 10px;
         }
-
-        .info-tag {
-            background-color: #2c221a;
-            color: #ff9f43;
-            padding: 6px 12px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .tab-buttons {
-            display: flex;
-            gap: 5px;
-            margin-bottom: 12px;
-            border-bottom: 1px solid #2f3542;
-            padding-bottom: 8px;
-        }
-
-        .tab-btn {
-            background: #252836;
-            color: #a4b0be;
-            border: none;
-            padding: 8px 12px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.2s;
-            flex: 1;
-            text-align: center;
-        }
-
-        .tab-btn.active {
-            background: #ffcc00;
-            color: #0d0e12;
-        }
-
-        .tab-content {
-            font-size: 0.95rem;
-            color: #cccccc;
-            line-height: 1.5;
-            min-height: 80px;
-            margin-bottom: 15px;
-        }
-
-        .tab-pane {
-            display: none;
-        }
-
-        .tab-pane.active {
-            display: block;
-        }
-
-        .price {
-            font-size: 1.8rem;
-            color: #2ed573;
-            font-weight: bold;
-            margin: 10px 0 0 0;
-            text-align: center;
-        }
-
-        .contact-info {
-            background-color: #1e202c;
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid #333;
-            margin: 40px 0;
-            font-size: 1.2rem;
-            line-height: 1.5;
-            text-align: center;
-        }
-
-        footer {
-            background-color: #090a0d;
-            padding: 30px;
-            color: #57606f;
-            border-top: 1px solid #1c1e27;
+        .item-specs strong {
+            color: #ffaa00;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Магазин 3D Брелков LEV & KOT</h1>
-        <div class="tagline">Продвинутый интерактивный каталог. Нажимай на вкладки, чтобы узнать детали!</div>
-    </header>
+    <!-- Блок: Режим работы -->
+    <div class="notice-box">
+        <h4>⏳ Режим работы магазина на каникулах:</h4>
+        <ul>
+            <li>До 27 июля включительно основная работа на паузе, пока мы ждём приезда нового 3D-принтера.</li>
+            <li>В выходные дни вы можете попробовать написать и оставить заказ — если я буду свободен, то смогу сделать его для вас!</li>
+            <li>Большое спасибо за понимание и поддержку нашей студии!</li>
+        </ul>
+    </div>
 
-    <div class="container">
-        
-        <!-- РЕЖИМ РАБОТЫ МАГАЗИНА -->
-        <div class="stop-orders-box">
-            ⏳ РЕЖИМ РАБОТЫ МАГАЗИНА НА КАНИКУЛАХ:<br>
-            • До 27 июля включительно основная работа на паузе, пока мы ждём приезда нового 3D-принтера.<br>
-            • В выходные дни вы можете попробовать написать и оставить заказ — если я буду свободен, то смогу сделать его для вас!<br>
-            • Большое спасибо за понимание и поддержку нашей студии!
-        </div>
-        
-        <div class="warning-box">
-            📌 Информация о текстуре изделий:<br>
-            Реальные брелки могут слегка отличаться от картинок на экране, так как при 3D-печати слои горячего пластика накладываются друг на друга, создавая уникальную рельефную поверхность.
-        </div>
+    <!-- Блок: Информация о текстуре -->
+    <div class="info-box">
+        <p>📌 <strong>Информация о текстуре изделий:</strong><br>
+        Реальные брелки могут слегка отличаться от картинок на экране, так как при 3D-печати слои горячего пластика накладываются друг на друга, создавая уникальную рельефную поверхность.</p>
+    </div>
 
-        <h2>Наш ассортимент</h2>
+    <!-- Заголовок ассортимента -->
+    <h2 class="section-title">Наш ассортимент</h2>
+
+    <!-- Галерея товаров с фото -->
+    <div class="gallery-container">
         
-        <div class="catalog">
-            
-            <!-- ТОВАР 1: ПРОЦЕССОР -->
-            <div class="product-card" id="prod-proc">
-                <!-- ИСПРАВЛЕНО: имя файла теперь точно совпадает с картинкой на Гитхабе -->
-                <img src="image (1).png" alt="Брелок Процессор" onerror="this.onerror=null; this.src='https://placehold.co';">
-                <h3>Брелок «Процессор»</h3>
-                <div class="info-tag">🛠️ Сверление отверстия вручную</div>
-                
-                <div class="tab-buttons">
-                    <button class="tab-btn active" onclick="switchTab('prod-proc', 'desc')">Описание</button>
-                    <button class="tab-btn" onclick="switchTab('prod-proc', 'size')">Размеры</button>
-                    <button class="tab-btn" onclick="switchTab('prod-proc', 'tech')">Тех. инфо</button>
-                </div>
-                
-                <div class="tab-content">
-                    <div class="tab-pane active" id="prod-proc-desc">
-                        Детализированная мини-копия компьютерного чипа. Отличный подарок для геймеров, гиков и всех, кто любит крутое компьютерное железо!
-                    </div>
-                    <div class="tab-pane" id="prod-proc-size">
-                        • <b>Длина:</b> 38 мм<br>
-                        • <b>Ширина:</b> 38 мм<br>
-                        • <b>Толщина:</b> 4 мм
-                    </div>
-                    <div class="tab-pane" id="prod-proc-tech">
-                        • <b>Материал:</b> Износостойкий PLA пластик<br>
-                        • <b>Время печати:</b> ~40 минут<br>
-                        • <b>Вес:</b> ~6 грамм
-                    </div>
-                </div>
-                
-                <div class="price">450 ₸</div>
+        <!-- ТОВАР 1: Свисток-Брелок -->
+        <div class="item-box">
+            <img src="whistle.png" alt="Свисток-Брелок">
+            <div class="item-name">Свисток-Брелок (Keychain)</div>
+            <div class="item-specs">
+                <strong>Размер:</strong> 15 x 48 x 8 мм<br>
+                <strong>Время:</strong> ~14 минут<br>
+                <strong>Электричество:</strong> ~20 Вт·ч<br>
+                <strong>Себестоимость:</strong> ~25 ₸
             </div>
+        </div>
 
-            <!-- ТОВАР 2: СВИСТОК -->
-            <div class="product-card" id="prod-whistle">
-                <img src="whistle.png" alt="Брелок Свисток" onerror="this.onerror=null; this.src='https://placehold.co';">
-                <h3>Брелок «Свисток»</h3>
-                <div class="info-tag">📐 Отверстие готово в 3D-модели</div>
-                
-                <div class="tab-buttons">
-                    <button class="tab-btn active" onclick="switchTab('prod-whistle', 'desc')">Описание</button>
-                    <button class="tab-btn" onclick="switchTab('prod-whistle', 'size')">Размеры</button>
-                    <button class="tab-btn" onclick="switchTab('prod-whistle', 'tech')">Тех. инфо</button>
-                </div>
-                
-                <div class="tab-content">
-                    <div class="tab-pane active" id="prod-whistle-desc">
-                        Стильный, обтекаемый и полностью рабочий свисток. Издаёт громкий чистый звук. Шикарно смотрится на связке ключей или спортивном рюкзаке.
-                    </div>
-                    <div class="tab-pane" id="prod-whistle-size">
-                        • <b>Длина:</b> 45 мм<br>
-                        • <b>Ширина:</b> 20 мм<br>
-                        • <b>Толщина:</b> 15 мм
-                    </div>
-                    <div class="tab-pane" id="prod-whistle-tech">
-                        • <b>Материал:</b> Прочный водостойкий PETG пластик<br>
-                        • <b>Время печати:</b> ~25 минут<br>
-                        • <b>Конструкция:</b> Встроенный шарик
-                    </div>
-                </div>
-                
-                <div class="price">300 ₸</div>
+        <!-- ТОВАР 2: Процессор Core i7 -->
+        <div class="item-box">
+            <img src="cpu.png" alt="Макет процессора Core i7">
+            <div class="item-name">Макет процессора Core i7</div>
+            <div class="item-specs">
+                <strong>Размер:</strong> 22 x 22 x 1.2 мм<br>
+                <strong>Время:</strong> ~9 минут<br>
+                <strong>Электричество:</strong> ~13 Вт·ч<br>
+                <strong>Себестоимость:</strong> ~5 ₸
             </div>
+        </div>
 
-            <!-- ТОВАР 3: СЕКРЕТНЫЙ ТИЗЕР -->
-            <div class="product-card" style="opacity: 0.6; border-style: dashed;">
-                <div class="photo-placeholder" style="border: none; background: #161822;">❓ СКОРО</div>
-                <h3>Новый брелок</h3>
-                <div class="info-tag" style="background: #222; color: #aaa;">⏳ В разработке</div>
-                <div class="tab-content" style="min-height: 80px; display: flex; align-items: center;">
+    </div>
+
+</body>
+</html>
 
 
