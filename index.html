@@ -39,9 +39,24 @@
             padding: 0 20px;
         }
 
+        /* ОРАНЖЕВЫЙ БЛОК СТОП-ЗАКАЗ */
+        .stop-orders-box {
+            background-color: #2c221a;
+            border: 2px solid #ff9f43;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            color: #ff9f43;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: left;
+            line-height: 1.6;
+            box-shadow: 0 0 15px rgba(255, 159, 67, 0.15);
+        }
+
         .warning-box {
             background-color: #2c221a;
-            border: 2px dashed #ff9f43;
+            border: 1px dashed #ff9f43;
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 40px;
@@ -68,13 +83,6 @@
             flex-direction: column;
             justify-content: space-between;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            border-color: #ffcc00;
-            box-shadow: 0 10px 25px rgba(255, 204, 0, 0.15);
         }
 
         .product-card img, .photo-placeholder {
@@ -155,6 +163,14 @@
 
     <div class="container">
         
+        <!-- ОБНОВЛЕННЫЙ БЛОК С УСЛОВИЯМИ РАБОТЫ -->
+        <div class="stop-orders-box">
+            ⏳ РЕЖИМ РАБОТЫ МАГАЗИНА НА КАННИКУЛАХ:<br>
+            • До 27 июля включительно основная работа на паузе, пока мы ждём приезда нового 3D-принтера.<br>
+            • В выходные дни вы можете попробовать написать и оставить заказ — <b>если я буду не занят и свободен, то смогу сделать его для вас!</b><br>
+            • Большое спасибо за понимание и поддержку нашей студии!
+        </div>
+        
         <div class="warning-box">
             📌 Информация о текстуре изделий:<br>
             Реальные брелки могут слегка отличаться от картинок на экране, так как при 3D-печати слои горячего пластика накладываются друг на друга, создавая уникальную рельефную поверхность.
@@ -166,17 +182,15 @@
             
             <!-- ТОВАР 1: ПРОЦЕССОР -->
             <div class="product-card">
-                <!-- Твоё фото процессора (переименуй файл процессора в processor.png, чтобы они не путались) -->
-                <img src="processor.png" alt="Брелок Процессор" onerror="this.onerror=null; this.src='https://placehold.co';">
+                <img src="image.png" alt="Брелок Процессор" onerror="this.onerror=null; this.src='https://placehold.co';">
                 <h3>Брелок «Процессор»</h3>
                 <div class="info-tag">🛠️ Отверстие просверливается вручную</div>
-                <p>Детализированная мини-копия компьютерного чипа. Супер-аксессуар для всех любителей технологий и ПК-железа!</p>
+                <p>Детализированная mini-копия компьютерного чипа. Супер-аксессуар для всех любителей технологий и ПК-железа!</p>
                 <div class="price">450 ₸</div>
             </div>
 
             <!-- ТОВАР 2: СВИСТОК -->
             <div class="product-card">
-                <!-- Твой новый синий свисток whistle.png -->
                 <img src="whistle.png" alt="Брелок Свисток" onerror="this.onerror=null; this.src='https://placehold.co';">
                 <h3>Брелок «Свисток»</h3>
                 <div class="info-tag">📐 Отверстие готово в 3D-модели</div>
