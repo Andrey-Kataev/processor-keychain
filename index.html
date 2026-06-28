@@ -68,7 +68,7 @@
 
         .catalog {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
             margin: 40px 0;
         }
@@ -80,8 +80,8 @@
             border: 1px solid #2f3542;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: left;
         }
 
         .product-card img, .photo-placeholder {
@@ -106,15 +106,8 @@
         .product-card h3 {
             color: #ffcc00;
             font-size: 1.5rem;
-            margin: 10px 0;
-        }
-
-        .product-card p {
-            font-size: 1rem;
-            color: #cccccc;
-            line-height: 1.4;
-            margin: 5px 0 15px 0;
-            flex-grow: 1;
+            margin: 5px 0;
+            text-align: center;
         }
 
         .info-tag {
@@ -124,15 +117,59 @@
             font-size: 0.85rem;
             font-weight: bold;
             border-radius: 6px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             text-align: center;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #2f3542;
+            padding-bottom: 8px;
+        }
+
+        .tab-btn {
+            background: #252836;
+            color: #a4b0be;
+            border: none;
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex: 1;
+            text-align: center;
+        }
+
+        .tab-btn.active {
+            background: #ffcc00;
+            color: #0d0e12;
+        }
+
+        .tab-content {
+            font-size: 0.95rem;
+            color: #cccccc;
+            line-height: 1.5;
+            min-height: 80px;
+            margin-bottom: 15px;
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
         }
 
         .price {
             font-size: 1.8rem;
             color: #2ed573;
             font-weight: bold;
-            margin: 10px 0;
+            margin: 10px 0 0 0;
+            text-align: center;
         }
 
         .contact-info {
@@ -143,11 +180,7 @@
             margin: 40px 0;
             font-size: 1.2rem;
             line-height: 1.5;
-        }
-
-        .contact-info span {
-            color: #ffcc00;
-            font-weight: bold;
+            text-align: center;
         }
 
         footer {
@@ -162,7 +195,7 @@
 
     <header>
         <h1>Магазин 3D Брелков LEV & KOT</h1>
-        <div class="tagline">Ассортимент постоянно пополняется! Добавляем новые крутые товары.</div>
+        <div class="tagline">Продвинутый интерактивный каталог. Нажимай на вкладки, чтобы узнать детали!</div>
     </header>
 
     <div class="container">
@@ -185,20 +218,65 @@
         <div class="catalog">
             
             <!-- ТОВАР 1: ПРОЦЕССОР -->
-            <div class="product-card">
-                <img src="image.png" alt="Брелок Процессор" onerror="this.onerror=null; this.src='https://placehold.co';">
+            <div class="product-card" id="prod-proc">
+                <!-- ИСПРАВЛЕНО: имя файла теперь точно совпадает с картинкой на Гитхабе -->
+                <img src="image (1).png" alt="Брелок Процессор" onerror="this.onerror=null; this.src='https://placehold.co';">
                 <h3>Брелок «Процессор»</h3>
-                <div class="info-tag">🛠️ Отверстие просверливается вручную</div>
-                <p>Детализированная mini-копия компьютерного чипа. Супер-аксессуар для всех любителей технологий и ПК-железа!</p>
+                <div class="info-tag">🛠️ Сверление отверстия вручную</div>
+                
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="switchTab('prod-proc', 'desc')">Описание</button>
+                    <button class="tab-btn" onclick="switchTab('prod-proc', 'size')">Размеры</button>
+                    <button class="tab-btn" onclick="switchTab('prod-proc', 'tech')">Тех. инфо</button>
+                </div>
+                
+                <div class="tab-content">
+                    <div class="tab-pane active" id="prod-proc-desc">
+                        Детализированная мини-копия компьютерного чипа. Отличный подарок для геймеров, гиков и всех, кто любит крутое компьютерное железо!
+                    </div>
+                    <div class="tab-pane" id="prod-proc-size">
+                        • <b>Длина:</b> 38 мм<br>
+                        • <b>Ширина:</b> 38 мм<br>
+                        • <b>Толщина:</b> 4 мм
+                    </div>
+                    <div class="tab-pane" id="prod-proc-tech">
+                        • <b>Материал:</b> Износостойкий PLA пластик<br>
+                        • <b>Время печати:</b> ~40 минут<br>
+                        • <b>Вес:</b> ~6 грамм
+                    </div>
+                </div>
+                
                 <div class="price">450 ₸</div>
             </div>
 
             <!-- ТОВАР 2: СВИСТОК -->
-            <div class="product-card">
+            <div class="product-card" id="prod-whistle">
                 <img src="whistle.png" alt="Брелок Свисток" onerror="this.onerror=null; this.src='https://placehold.co';">
                 <h3>Брелок «Свисток»</h3>
                 <div class="info-tag">📐 Отверстие готово в 3D-модели</div>
-                <p>Стильный и громкий свисток из прочного синего пластика. Круто смотрится на рюкзаке, сумке или ключах.</p>
+                
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="switchTab('prod-whistle', 'desc')">Описание</button>
+                    <button class="tab-btn" onclick="switchTab('prod-whistle', 'size')">Размеры</button>
+                    <button class="tab-btn" onclick="switchTab('prod-whistle', 'tech')">Тех. инфо</button>
+                </div>
+                
+                <div class="tab-content">
+                    <div class="tab-pane active" id="prod-whistle-desc">
+                        Стильный, обтекаемый и полностью рабочий свисток. Издаёт громкий чистый звук. Шикарно смотрится на связке ключей или спортивном рюкзаке.
+                    </div>
+                    <div class="tab-pane" id="prod-whistle-size">
+                        • <b>Длина:</b> 45 мм<br>
+                        • <b>Ширина:</b> 20 мм<br>
+                        • <b>Толщина:</b> 15 мм
+                    </div>
+                    <div class="tab-pane" id="prod-whistle-tech">
+                        • <b>Материал:</b> Прочный водостойкий PETG пластик<br>
+                        • <b>Время печати:</b> ~25 минут<br>
+                        • <b>Конструкция:</b> Встроенный шарик
+                    </div>
+                </div>
+                
                 <div class="price">300 ₸</div>
             </div>
 
@@ -207,23 +285,6 @@
                 <div class="photo-placeholder" style="border: none; background: #161822;">❓ СКОРО</div>
                 <h3>Новый брелок</h3>
                 <div class="info-tag" style="background: #222; color: #aaa;">⏳ В разработке</div>
-                <p>Мы уже моделируем в Blender следующее секретное изделие. Совсем скоро оно появится на этой полке!</p>
-                <div class="price">-- ₸</div>
-            </div>
+                <div class="tab-content" style="min-height: 80px; display: flex; align-items: center;">
 
-        </div>
-
-        <!-- ИСПРАВЛЕННЫЙ И БЕЗОПАСНЫЙ БЛОК КОНТАКТОВ -->
-        <div class="contact-info">
-            <p>🛡️ <b>Конфиденциальность:</b> Личные контактные данные разработчиков полностью скрыты от спам-ботов для защиты от злоумышленников.</p>
-            <p>В данный момент приём заявок временно приостановлен. Кнопка связи появится сразу после завершения технических работ и настройки оборудования. Спасибо за уважение к нашей работе!</p>
-        </div>
-    </div>
-
-    <footer>
-        <p>© 2026 Студия LEV & KOT. Изготовление пластиковых брелков в Казахстане 🇰🇿</p>
-    </footer>
-
-</body>
-</html>
 
