@@ -5,208 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Дачная Лаборатория 3D-Печати</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #141419;
-            color: #ffffff;
-            padding: 20px;
-            margin: 0;
-        }
-        .header-container {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-top: 10px;
-        }
-        .header-container img {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            border: 3px solid #ffaa00;
-            box-shadow: 0 0 20px rgba(255, 170, 0, 0.5);
-            object-fit: cover;
-            background-color: #222;
-        }
-        .header-title {
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin: 15px 0 5px 0;
-            font-size: 26px;
-        }
-        .header-subtitle {
-            color: #ffaa00;
-            margin: 0;
-            font-size: 14px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        .notice-box {
-            background-color: #1e140a;
-            border: 1px solid #ffaa00;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-        .notice-box h4 {
-            margin: 0 0 10px 0;
-            color: #ffaa00;
-            text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
-        .notice-box ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-        .notice-box li {
-            margin-bottom: 8px;
-            font-size: 14px;
-            color: #ffaa00;
-            line-height: 1.4;
-        }
-        .info-box {
-            background-color: #1a1a1f;
-            border: 1px dashed #555;
-            border-radius: 8px;
-            padding: 15px;
-            max-width: 800px;
-            margin: 0 auto 30px auto;
-        }
-        .info-box p {
-            margin: 0;
-            font-size: 14px;
-            color: #ffaa00;
-            line-height: 1.4;
-        }
-        .section-title {
-            text-align: center;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 40px;
-            font-size: 22px;
-        }
-        .gallery-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 50px;
-            margin-top: 30px;
-        }
-        .item-box {
-            text-align: center;
-            width: 280px;
-            transition: transform 0.3s ease;
-        }
-        .item-box:hover {
-            transform: scale(1.03);
-        }
-        .item-box img {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 2px solid #ffaa00;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.6);
-            background-color: #222;
-        }
-        .item-name {
-            color: #ffaa00;
-            font-weight: bold;
-            margin: 15px 0 10px 0;
-            font-size: 18px;
-            border-bottom: 1px dashed #333;
-            padding-bottom: 5px;
-        }
-        .item-specs {
-            color: #bbb;
-            font-size: 14px;
-            margin: 0;
-            line-height: 1.6;
-            text-align: left;
-            padding-left: 10px;
-        }
-        .item-specs strong {
-            color: #ffaa00;
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #141419; color: #ffffff; padding: 20px; margin: 0; }
+        .header-container { text-align: center; margin-bottom: 30px; padding-top: 10px; }
+        .header-container img { width: 110px; height: 110px; border-radius: 50%; border: 3px solid #ffaa00; box-shadow: 0 0 20px rgba(255, 170, 0, 0.5); object-fit: cover; background-color: #222; }
+        .header-title { color: #ffffff; text-transform: uppercase; letter-spacing: 3px; margin: 15px 0 5px 0; font-size: 26px; }
+        .header-subtitle { color: #ffaa00; margin: 0; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; }
+        .notice-box { background-color: #1e140a; border: 1px solid #ffaa00; border-radius: 8px; padding: 15px; margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .notice-box h4 { margin: 0 0 10px 0; color: #ffaa00; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
+        .notice-box ul { margin: 0; padding-left: 20px; }
+        .notice-box li { margin-bottom: 8px; font-size: 14px; color: #ffaa00; line-height: 1.4; }
+        .info-box { background-color: #1a1a1f; border: 1px dashed #555; border-radius: 8px; padding: 15px; max-width: 800px; margin: 0 auto 30px auto; }
+        .info-box p { margin: 0; font-size: 14px; color: #ffaa00; line-height: 1.4; }
+        .section-title { text-align: center; color: #fff; text-transform: uppercase; letter-spacing: 2px; margin-top: 40px; font-size: 22px; }
+        .gallery-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 50px; margin-top: 30px; }
+        .item-box { text-align: center; width: 280px; transition: transform 0.3s ease; }
+        .item-box:hover { transform: scale(1.03); }
+        .item-box img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 10px; border: 2px solid #ffaa00; box-shadow: 0 6px 15px rgba(0,0,0,0.6); background-color: #222; }
+        .item-name { color: #ffaa00; font-weight: bold; margin: 15px 0 10px 0; font-size: 18px; border-bottom: 1px dashed #333; padding-bottom: 5px; }
+        .item-specs { color: #bbb; font-size: 14px; margin: 0; line-height: 1.6; text-align: left; padding-left: 10px; }
+        .item-specs strong { color: #ffaa00; }
     </style>
 </head>
 <body>
 
-    <!-- Шапка сайта с логотипом (Лев + Кот) -->
     <div class="header-container">
         <img src="logo.png" alt="Логотип Студии со Львом и Котом">
         <h1 class="header-title">3D Студия Дачной печати</h1>
         <p class="header-subtitle">Лаборатория дачной печати</p>
     </div>
 
-    <!-- Блок: Режим работы -->
     <div class="notice-box">
-        
         <ul>
-            <li>Сайт открыт цены добавлены
+            <li>Сайт открыт цены добавлены</li>
             <li>Большое спасибо за понимание и поддержку нашей студии!</li>
         </ul>
     </div>
 
-    <!-- Блок: Информация о текстуре -->
     <div class="info-box">
-        <p>📌 <strong>Информация о текстуре изделий и еще нет пока свет.версии кликера нет светодиодов+кольц для брелков мало:</strong><br> 
+        <p>📌 <strong>Информация о текстуре изделий для свет клиера не забрал диоды + кольц для брелков мало:</strong><br> 
         Реальные брелки могут слегка отличаться от картинок на экране, так как при 3D-печати слои горячего пластика накладываются друг на друга, создавая уникальную рельефную поверхность.</p>
     </div>
 
-    <!-- Заголовок ассортимента -->
     <h2 class="section-title">Наш ассортимент</h2>
 
-    <!-- Галерея товаров с фото -->
     <div class="gallery-container">
         
-        <!-- ТОВАР 1: Свисток-Брелок -->
         <div class="item-box">
             <img src="whistle.png" alt="Свисток-Брелок">
             <div class="item-name">Свисток-Брелок (Keychain)</div>
             <div class="item-specs">
                 <strong>Размер:</strong> 15 x 48 x 8 мм<br>
-                <strong>Отверстие:</strong> напечатано сразу (сверлить не нужно!) 300 ₸ имя/слово(где есть буквы) 200 ₸
+                <strong>Отверстие:</strong> напечатано сразу (сверлить не нужно!) 149 ₸ имя/слово(где есть буквы) 200 ₸
             </div>
         </div>
 
-        <!-- ТОВАР 2: Процессор Core i7 -->
         <div class="item-box">
             <img src="cpu.png" alt="Макет процессора Core i7">
             <div class="item-name">Макет процессора Core i7</div>
             <div class="item-specs">
                 <strong>Размер:</strong> 22 x 22 x 1.2 мм<br>
-                <strong></strong> могу для вас увеличить 300 ₸ имя/слово(где есть буквы) 200 ₸ 
+                могу для вас увеличить  179 ₸имя/слово(где есть буквы) 200 ₸ 
             </div>
         </div>
 
-        <!-- ТОВАР 3: Подвижный Кот-Брелок -->
         <div class="item-box">
             <img src="cat.png" alt="Подвижный Кот-Брелок">
             <div class="item-name">Подвижный Кот-Брелок (Flexi Cat)</div>
             <div class="item-specs">
                 <strong>Размер:</strong> 27 x 50 x 19 мм<br>
-                <strong>Особенности:</strong> гибкая подвижная геометрия, милые ушки и хвостик! 500 ₸
+                <strong>Особенности:</strong> гибкая подвижная геометрия, милые ушки и хвостик! 413 ₸
             </div>
         </div>
 
-        <!-- ТОВАР 5: Кот-Пухляш -->
         <div class="item-box">
             <img src="cat2.png" alt="Кот-Пухляш">
             <div class="item-name">Кот-Пухляш (Chubby Cat)</div>
             <div class="item-specs">
                 <strong>Размер:</strong> 30 x 33 x 28 мм<br>
-                <strong>Особенности:</strong> милая круглая форма, напечатано ушко под кольцо! 500 ₸
+                <strong>Особенности:</strong> милая круглая форма, напечатано ушко под кольцо! 257 ₸
             </div>
         </div>
 
-<!-- ТОВАР 5: Набор алмазных инструментов Minecraft -->
         <div class="item-box">
             <img src="Tools_In+Minecraft.png" alt="Набор алмазных инструментов Майнкрафт">
             <div class="item-name">Набор алмазных + золотых инструментов Minecraft</div>
@@ -218,21 +97,19 @@
                 • Лопата — 18 × 55 × 6 мм<br><br>
                 <strong>Особенности:</strong><br>
                 Полный комплект из 4 инструментов.<br>
-                Красится вручную (извините, если получится не идеально 😊). 500 ₸ имя/слово(где есть буквы) 200₸ попытаюсь сделать
+                Красится вручную (извините, если получится не идеально 😊). 270 ₸ имя/слово(где есть буквы) 200₸ попытаюсь сделать
             </div>
         </div>
 
-        <!-- ТОВАР 6: CanOpenerV2 -->
         <div class="item-box">
             <img src="Opener.png" alt="CanOpenerV2">
             <div class="item-name">Открывашка CanOpenerV2</div>
             <div class="item-specs">
                 <strong>Размер:</strong> 33.2 x 45.4 x 18.7 мм<br>
-                <strong>Особенности:</strong> прочная, удобно лежит в руке 500 ₸
+                <strong>Особенности:</strong> прочная, удобно лежит в руке 257  ₸
             </div>
         </div>
       
-        <!-- ТОВАР 7: Набор Цветов 4 шт -->
         <div class="item-box">
             <img src="flowers.png" alt="Набор цветов 3D">
             <div class="item-name">Набор цветов 3D (4 шт)</div>
@@ -242,31 +119,45 @@
                 - Мак— 58.8 x 146.1 x 2 мм<br>
                 - Подсолнух — 63.9 x 164.0 x 2 мм<br>
                 - Тюльпан — 45.7 x 152.3 x 2 мм<br><br>
-                <strong>Цена за набор:</strong> 700 ₸
+                <strong>Цена за набор:</strong> 1133₸
             </div>
         </div>
       
-        <!-- ТОВАР 8: Рюкзак-Карандашница -->
         <div class="item-box">
             <img src="backpack.png" alt="Рюкзак 3D">
             <div class="item-name">Рюкзак 3D Pen Holder</div>
             <div class="item-specs">
                 <strong>Размер:</strong> 87.6 x 92.9 x 100.0 мм<br>
-                <strong>Цена:</strong> 2000 ₸
-                </div>
-                     </div>
-<!-- ТОВАР 9: Антистресс Кликер -->
-<div class="item-box">
-    <img src="clicker.png" alt="Антистресс Кликер" id="clicker-glow">
-    <div class="item-name">Антистресс Кликер (Clicker)</div>
-    <div class="item-specs">
-        <strong>Размеры комплекта:</strong><br>
-        - Корпус: 24.0 x 24.0 x 18.0 мм<br>
-        - Кейкап: 18.1 x 18.1 x 9.4 мм<br><br>
-        <strong>Особенности:</strong> 2 детали. Щелкает очень громко 😄<br>
-       <strong>Дополнение:</strong> Светящаяся версия + 800 ₸ <br>
-        <strong>Цена:</strong> 700 ₸
-    </div>
-</div>
+                <strong>Цена:</strong> 2894 ₸
+            </div>
+        </div>
+
+        <!-- ТОВАР 9: Антистресс Кликер - ТОЛЬКО ОДИН РАЗ -->
+        <div class="item-box">
+            <img src="clicker.png" alt="Антистресс Кликер" id="clicker-glow">
+            <div class="item-name">Антистресс Кликер (Clicker)</div>
+            <div class="item-specs">
+                <strong>Размеры комплекта:</strong><br>
+                - Корпус: 24.0 x 24.0 x 18.0 мм<br>
+                - Кейкап: 18.1 x 18.1 x 9.4 мм<br><br>
+                <strong>Особенности:</strong> 2 детали. Щелкает очень громко 😄<br>
+                <strong>Дополнение:</strong> Светящаяся версия + 800 ₸ <br>
+                <strong>Цена:</strong> 286 ₸
+            </div>
+        </div>
+
+        <!-- ТОВАР 10: Аксолотль -->
+        <div class="item-box">
+            <img src="axolotl.png" alt="Аксолотль">
+            <div class="item-name">Аксолотль (Axolotl)</div>
+            <div class="item-specs">
+                <strong>Размер:</strong> 174.7 x 58.1 x 25.0 мм<br>
+                <strong>Особенности:</strong> милый подвижный, с улыбкой!<br><br>
+                <strong>Цена:</strong> 931 ₸
+            </div>
+        </div>
+
+    </div> <!-- закрыли gallery-container -->
+
 </body>
 </html>
